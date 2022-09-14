@@ -32,7 +32,7 @@ private let kPBInfiniteScrollAnimationDuration: TimeInterval = 0.35
 /**
  Enum that describes the infinite scroll direction.
  */
-enum InfiniteScrollDirection {
+public enum InfiniteScrollDirection {
     /**
      *  Trigger infinite scroll when the scroll view reaches the bottom.
      *  This is the default. It is also the only supported direction for
@@ -47,7 +47,7 @@ enum InfiniteScrollDirection {
     case horizontal
 }
 
-protocol InfiniteActivityIndicator: UIView {
+public protocol InfiniteActivityIndicator: UIView {
     func startAnimating()
     func stopAnimating()
 }
@@ -151,7 +151,7 @@ private class _PBInfiniteScrollState: NSObject {
     }
 }
 
-extension UIScrollView {
+public extension UIScrollView {
     
     /// Method swizzling, must be called once
     static func swizzleInfiniteScrolls() {
@@ -164,7 +164,7 @@ extension UIScrollView {
     }
 }
 
-extension UIScrollView {
+public extension UIScrollView {
     
     // MARK: - Public
     
