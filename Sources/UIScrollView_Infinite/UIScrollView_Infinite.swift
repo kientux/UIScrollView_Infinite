@@ -151,10 +151,20 @@ private class _PBInfiniteScrollState: NSObject {
     }
 }
 
+private extension UIScrollView {
+    static var swizzled: Bool = false
+}
+
 public extension UIScrollView {
     
     /// Method swizzling, must be called once
     static func swizzleInfiniteScrolls() {
+        if swizzled {
+            return
+        }
+
+        swizzled = true
+        
         PBSwizzleMethod(clazz: self,
                         original: #selector(setter: contentOffset),
                         alternate: #selector(pb_setContentOffset(_:)))
